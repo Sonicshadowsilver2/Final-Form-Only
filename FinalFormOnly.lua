@@ -70,14 +70,16 @@ function _OnFrame()
 		if ReadByte(Now+0x00) == 0x02 then --Twilight Town
 			if ReadByte(Now+0x08) == 0x9D or ReadByte(Now+0x08) == 0x78 or ReadByte(Now+0x08) == 0x7D then
 				WriteShort(UCM+0x009C, 0x0323) --Roxas -> Roxas (Dual-Wielded)
+				WriteShort(UCM+0x34EC, 0x021F) --Roxas (Dual-Wielded) with Two Become One
 			else
 				WriteShort(UCM+0x009C, 0x0058) --Roxas -> Final Form
+				WriteShort(UCM+0x34EC, 0x002A) --Roxas (Dual-Wielded) with Oathkeeper
 			end
 			if ReadByte(Now+0x08) == 0x89 then --Final Form Keyblade at Axel II
-				WriteShort(Save+0x32F4, 0x002A)
+				WriteShort(Save+0x33D4, 0x002A)
 			end
 			if ReadByte(Now+0x08) == 0x87 then --Final Form Keyblade after Axel II
-				WriteShort(Save+0x32F4, 0x021F)
+				WriteShort(Save+0x33D4, 0x021F)
 			end
 			if ReadByte(Now+0x01) == 0x1C and ReadByte(Now+0x08) == 0x01 and ReadByte(Save+0x1CE5) == 0x05 then
 				WriteByte(Save+0x1CE5, 0x01)
